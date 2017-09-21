@@ -1,0 +1,17 @@
+//清除浮动
+.clerfix{
+    display: inline-block;
+    &:after{
+        content: '';
+        height: 0;
+        width: 0;
+        display: block;
+        font-size: 0;
+        overflow: hidden;
+        visibility: hidden;
+        clear: both;
+    }
+}
+
+//默认边框
+
