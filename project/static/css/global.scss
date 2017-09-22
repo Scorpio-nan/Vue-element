@@ -1,0 +1,94 @@
+
+//页面宽度     1920
+$main-width:1920;
+.leftwidth{
+    width:230/$main-width*100%;
+}
+.minddlewidth{
+    width:1100/$main-width*100%;
+}
+.rightwidth{
+    width:564/$main-width*100%;
+}
+
+//左边距
+$margin-left:243/$main-width*100%;
+
+//清除浮动
+.clerfix{
+    &:after{
+        content: '';
+        height: 0;
+        width: 0;
+        display: block;
+        font-size: 0;
+        overflow: hidden;
+        visibility: hidden;
+        clear: both;
+    }
+}
+//inline-block  兼容
+@mixin dib() {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+//文本超出部分隐藏
+@mixin ell() {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+//背景图
+@mixin bg-img($name){
+    background: url("../../../static/img/"+$name + ".png") no-repeat;
+    background-size:100% 100%;
+}
+
+
+//默认边框
+$border-color:#282828;
+$border-height:30px;
+@mixin border($border-color){
+    border:1px solid $border-color;
+    border-top:0;
+    border-right: 0;
+    position: relative;
+    &:before{
+        content: '';
+        display: block;
+        width: 1px;
+        height: $border-height;
+        background: $border-color;
+        position: absolute;
+        right: -1px;
+        top: 0;
+    }
+}
+
+//头部导航渐变
+@mixin nav-linner($color,$tocolor,$str,$tostr){
+    background: $color; 
+    background: -moz-linear-gradient(top, $color 0%, $tocolor 100%); 
+    background: -webkit-linear-gradient(top, $color 0%,$tocolor 100%); 
+    background: linear-gradient(to bottom, $color 0%,$tocolor 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$str, endColorstr=$tostr,GradientType=0 );
+}
+
+//渐变线
+@mixin line-linner($color,$tocolor,$str,$tostr){
+    background: $color; 
+    background: -moz-linear-gradient(top, $color 0%, $tocolor 50%, $color 100%); 
+    background: -webkit-linear-gradient(top, $color 0%,$tocolor 50%,$color 100%); 
+    background: linear-gradient(to bottom, $color 0%,$tocolor 50%,$color 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$str, endColorstr=$tostr,GradientType=0 );
+}
+
+
+
+
+
+
